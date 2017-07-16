@@ -1,6 +1,21 @@
-frontend-nanodegree-arcade-game
-===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+# Frogger Arcade Game
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## Summary
+Frogger Arcade is a variation of the classic Frogger arcade game.
+
+#### Character Selection
+Move the selector with right/left arrow keys and select a character by pressing space.
+
+#### Goals/Winning
+In this game the goal is simple, get the hero character to move across the gray bricks towards the water without getting hit by the enemy bugs. The difficulty of enemy bugs increase with each level and are randomly placed across the gray bricks at the start of each game.
+
+#### Movement and Controls
+Users move the hero character by using the main up/right/left/down arrow keys on their keyboard.
+
+## Links to GitHub Repository (Master Branch)
+* GitHub Project Repository: [https://github.com/denisdifazio/frontend-nanodegree-arcade-game/](https://github.com/denisdifazio/frontend-nanodegree-arcade-game/ "GitHub project repository")
+* Game link: [https://denisdifazio.github.io/frontend-nanodegree-arcade-game/](https://denisdifazio.github.io/frontend-nanodegree-arcade-game/ "Game link")
+
+## Course
+[http://udacity.com/course/object-oriented-javascript--ud015/](http://udacity.com/course/object-oriented-javascript--ud015/ "JavaScript Object-Oriented")  

@@ -26,6 +26,7 @@ Player.prototype.decrementY = function() {
     this.y--;
     if (this.y < 1) {
         this.score();
+        levelManager.increaseLevel();
     }
 };
 

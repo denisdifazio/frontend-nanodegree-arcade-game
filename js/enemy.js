@@ -1,10 +1,6 @@
-var randomIntFromInterval = function(min,max) {
-    return Math.floor(Math.random()*(max-min+1)+min);
-}
-
 var Enemy = function() {
-    Entity.call(this, 'images/enemy-bug.png', -1, randomIntFromInterval(1, 3));
-    this.speed = randomIntFromInterval(1, 8);
+    Entity.call(this, 'images/enemy-bug.png', -1, levelManager.randomRow());
+    this.speed = levelManager.randomSpeed();
 };
 
 Enemy.prototype = Object.create(Entity.prototype);
@@ -21,7 +17,7 @@ Enemy.prototype.incrementX = function(dt) {
 
     if (this.x > 5) {
         this.x = -1;
-        this.y = randomIntFromInterval(1, 3);
-        this.speed = randomIntFromInterval(1, 8);  
+        this.y = levelManager.randomRow();
+        this.speed = levelManager.randomSpeed(); 
     }
 };

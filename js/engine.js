@@ -64,6 +64,7 @@ var Engine = (function(global) {
      * game loop.
      */
     function init() {
+        ctx.font = "48px serif";
         reset();
         lastTime = Date.now();
     }
@@ -175,6 +176,7 @@ var Engine = (function(global) {
         }
         else {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            levelManager.render();
             main();
         }              
     }
@@ -191,7 +193,7 @@ var Engine = (function(global) {
             enemy.render();
         });
 
-        player.render();
+        player.render();        
     }
 
     /* This function does nothing but it could have been a good place to
@@ -229,4 +231,5 @@ var Engine = (function(global) {
      * from within their app.js files.
      */
     global.ctx = ctx;
+    global.canvas = canvas;
 })(this);
