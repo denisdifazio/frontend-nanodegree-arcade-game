@@ -66,7 +66,6 @@ var Engine = (function(global) {
     function init() {
         reset();
         lastTime = Date.now();
-        main();
     }
 
     /* This function is called by main (our game loop) and itself calls all
@@ -80,7 +79,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        //checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -139,6 +138,47 @@ var Engine = (function(global) {
         renderEntities();
     }
 
+    function renderCharacterSelection() {       
+        var ambientImages = [
+            'images/water-block.png',
+            'images/stone-block.png',            
+            'images/grass-block.png'
+        ];
+
+        var charactersImages = [ 
+                'images/char-boy.png',
+                'images/char-cat-girl.png',
+                'images/char-horn-girl.png',
+                'images/char-pink-girl.png',
+                'images/char-princess-girl.png'
+        ];
+
+        var numCols = 5;        
+
+        for (var col = 0; col < numCols; col++) {
+            ctx.drawImage(Resources.get(ambientImages[0]), col * 101, 0);
+            ctx.drawImage(Resources.get(ambientImages[1]), col * 101, 1 * 83)
+            ctx.drawImage(Resources.get(ambientImages[1]), col * 101, 2 * 83)
+            ctx.drawImage(Resources.get(ambientImages[1]), col * 101, 3 * 83);
+            ctx.drawImage(Resources.get(ambientImages[2]), col * 101, 4 * 83);  
+            ctx.drawImage(Resources.get(ambientImages[2]), col * 101, 5 * 83);                                         
+        }
+
+        selector.render();
+        
+        for (var col = 0; col < numCols; col++) {
+            ctx.drawImage(Resources.get(charactersImages[col]), col * 101, 5 * 75);         
+        }  
+
+        if (!selector.charSelected) {
+            win.requestAnimationFrame(renderCharacterSelection);
+        }
+        else {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            main();
+        }              
+    }
+
     /* This function is called by the render function and is called on each game
      * tick. Its purpose is to then call the render functions you have defined
      * on your enemy and player entities within app.js
@@ -159,7 +199,11 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        characterSelection();        
+    }
+
+    function characterSelection() {
+        renderCharacterSelection();               
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -171,7 +215,12 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/Selector.png',
+        'images/char-boy.png',
+        'images/char-cat-girl.png',
+        'images/char-horn-girl.png',
+        'images/char-pink-girl.png',
+        'images/char-princess-girl.png'
     ]);
     Resources.onReady(init);
 
